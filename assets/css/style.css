@@ -35,6 +35,9 @@ h5 {
     height: 8px;
     padding-right: 7px;
 }
-#search-btn:hover , #clear-btn {
+#search-btn:hover , #clear-btn, .articles {
     cursor: pointer;
+}
+.articles:hover {
+    color: darkgray;
 }
