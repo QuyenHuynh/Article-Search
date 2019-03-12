@@ -1,4 +1,4 @@
-# NYTSearch
+# Article-Search
 
 This web page uses the New York Times API to request and retrieve articles.
 Created with HTML, CSS, JavaScript, and JQuery.
