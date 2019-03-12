@@ -1,0 +1,40 @@
+body {
+
+}
+h1 {
+    text-align: center;
+}
+a , a:hover {
+    text-decoration: none;
+    color: black;
+}
+.container1, .container2 {
+    margin-left: 330px;
+    margin-top: 35px;
+    padding: 15px;
+    border: 1px solid black;
+    border-radius: 25px;
+    width: 50%;
+}
+#drop-down {
+    width: 100%;
+    height: 30px;
+}
+input {
+    width: 100%;
+}
+hr {
+    width: 100%;
+    margin-left: 0px;
+}
+h5 {
+    font-weight: bold;
+}
+#vertical-rule {
+    border-left: 1.5px solid darkgray;
+    height: 8px;
+    padding-right: 7px;
+}
+#search-btn:hover , #clear-btn {
+    cursor: pointer;
+}

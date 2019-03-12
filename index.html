@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!--bootstrap-->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!--font awesome v5-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <!--custom css-->
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>New York Times API</title>
+</head>
+
+<body>
+    <a href="https://www.nytimes.com/"><h1><i class="far fa-newspaper"></i> New York Times Search</h1></a>
+
+    <div class="container1">
+        <h5 id="search-parameters">Search Parameters</h5>
+        <hr>
+        <form>
+            <p>Search Term: <br><input type="text" name="searchterm" id="searchterm"></p>
+            <p id="records">Number of Records to Retrieve: <br>
+                <select id="drop-down">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                </select></p>
+            <p>Start Year (optional): <br><input type="text" name="startyear"></p>
+            <p>End Year (optional): <br><input type="text" name="endyear"></p>
+            <div id="buttons"><span id="search-btn"><i class="fas fa-search"></i> Search </span><span id="vertical-rule"></span> <span id="clear-btn"><i class="far fa-trash-alt"></i> Clear results</span></div>
+        </form>
+    </div>
+
+    <div class="container2">
+        <h5 id="top-articles"><i class="fas fa-archive"></i> Top Articles</h5>
+        <hr>
+    </div>
+    <br>
+    <br>
+
+    <!--jQuery-->
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+        integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <!--custom JavaScript-->
+    <script src="assets/javascript/logic.js"></script>
+
+
+</body>
+
+</html>
