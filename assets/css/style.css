@@ -1,5 +1,6 @@
-body {
-
+.jumbotron {
+    width: 65%;
+    margin: 0 auto;
 }
 h1 {
     text-align: center;
@@ -9,12 +10,12 @@ a , a:hover {
     color: black;
 }
 .container1, .container2 {
-    margin-left: 330px;
+    margin: 0 auto;
     margin-top: 35px;
     padding: 15px;
     border: 1px solid black;
     border-radius: 25px;
-    width: 50%;
+    width: 65%;
 }
 #drop-down {
     width: 100%;
@@ -35,9 +36,19 @@ h5 {
     height: 8px;
     padding-right: 7px;
 }
-#search-btn:hover , #clear-btn, .articles {
+#search-btn:hover , #clear-btn {
     cursor: pointer;
 }
-.articles:hover {
-    color: darkgray;
+.results { 
+    line-height: 8px;
+    margin-left: 15px;
+    padding-top: 15px;
+    margin-bottom: 25px;
+}
+#title {
+    font-size: 18px;
+    font-weight: 600;
+}
+.results a:hover{
+    color:darkgrey;
 }

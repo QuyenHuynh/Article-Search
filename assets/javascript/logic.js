@@ -1,6 +1,7 @@
+//On-click search button function
 $("#search-btn").on("click", function () {
 
-    $(".articles").empty();
+    $(".results-container").empty();
 
     //get search term information
     var searchTerm = $("#searchterm").val().trim();
@@ -9,58 +10,72 @@ $("#search-btn").on("click", function () {
     var APIkey = "2bdxYcdBu066AKNLT2ySa58AXSQqXXlQ";
     var queryURL = "https://api.nytimes.com/svc/search/v2/articlesearch.json?q=" + searchTerm + "&api-key=" + APIkey;
 
-    //optional start and end years will be included in queryURL if provided
+    //Start and end years (optional)
     var startYear = $("#start-year").val().trim();
     var endYear = $("#end-year").val().trim();
+
     if (parseInt(startYear)) {
         queryURL = queryURL + "&begin_date=" + startYear + "0101";
     }
     if (parseInt(endYear)) {
-        queryURL = queryURL + "&end_date=" + endYear + "0101";
+        queryURL = queryURL + "&end_date=" + endYear + "1231";
     }
 
-    //variable which stores the number of records we want to pull
+    //Stores the number of records we want pulled
     var records = $("#records option:selected").text();
     console.log("Number of records to pull: " + records);
-
 
     $.ajax({
         url: queryURL,
         method: "GET"
-    }).then(function (response) {
-        console.log(response);
+    }).then(function (NYTData) {
+        console.log(NYTData);
 
         for (i = 0; i < parseInt(records); i++) {
 
-            var pageHeadline = response.response.docs[i].headline.main;
-            var pageURL = response.response.docs[i].web_url;
-            //console log for debugging
-            console.log("Page url " + i + ": " + pageURL);
+            var pageHeadline = NYTData.response.docs[i].headline.main;
+            var author = NYTData.response.docs[i].byline.original;
+            var section = NYTData.response.docs[i].section_name;
+            var date = NYTData.response.docs[i].pub_date;
+            var pageURL = NYTData.response.docs[i].web_url;
 
-            //create new divisions and paragraphs to store articles
+            console.log("Headlines: " + pageHeadline);
+            console.log("Authors:" + author);
+            console.log("Sections: " + section);
+            console.log("Date: " + date);
+            console.log("URL: " + pageURL);
+
+            //create new div in to hold the articles
             var divElem = $("<div>");
+            divElem.addClass("results")
+
+            //create new paragraph elements with the ids for title, author, section, date, and link
             var pElem = $("<p>");
+            pElem.attr("id", "title");
+            var pElem2 = $("<p>");
+            var pElem3 = $("<p>");
+            var pElem4 = $("<p>");
+            var pElem5 = $("<p>");
 
-            //assigns the article class to each new paragraph
-            pElem.addClass("articles");
+            //assigns each paragraph their respective information
+            pElem.html(pageHeadline);
+            pElem2.html(author);
+            pElem3.html("Section: " + section);
+            pElem4.html("Date: " + date);
+            pElem5.html("Link: " + "<a href='" + pageURL + "'>" + pageURL + "</a>");
 
-            //assigns URL attr to each paragraph
-            $(".articles").attr("href", pageURL);
-
-            //assigns each paragraph headline text
-            pElem.text(i + 1 + ". " + pageHeadline);
-
-            //append to div
+            //append to divs
             $(divElem).append(pElem);
-            $(".container2").append(divElem);
+            $(divElem).append(pElem2);
+            $(divElem).append(pElem3);
+            $(divElem).append(pElem4);
+            $(divElem).append(pElem5);
+            $(".results-container").append(divElem);
+            $(".results-container").append("<hr>");
         };
-        $(".articles").on("click", function () {
-            var articleURL = $(this).attr("href");
-            window.open(articleURL);
-        });
     });
 });
 
 $("#clear-btn").on("click", function () {
-    $(".articles").empty();
+    $(".results-container").empty();
 });
