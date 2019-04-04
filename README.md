@@ -2,8 +2,6 @@
 
 This web page uses the New York Times API to request and retrieve articles.
 
-![screenshot](screenshot.gif)
-
 ## How to use:
 
 * In the search box, enter a keyword for articles of interest
@@ -11,6 +9,9 @@ This web page uses the New York Times API to request and retrieve articles.
 * Be sure to select how many articles you'd like to pull and click on "search"
 * In the "Top Articles" section, the article titles will appear in order of relevance as well as their author, section, publishing date, and url.
 * Use "clear results" to clear out the articles.
+
+![screenshot](screenshot.gif)
+
 
 ## Technologies used:
 
